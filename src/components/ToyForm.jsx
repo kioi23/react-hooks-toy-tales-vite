@@ -40,7 +40,7 @@ function ToyForm({ onAddToy }) {
 
       <input
         type="text"
-        placeholder="Enter an image URL..."
+        placeholder="Enter a toy's image URL..."
         value={image}
         onChange={(e) => setImage(e.target.value)}
       />
