@@ -43,4 +43,26 @@ function ToyForm() {
   );
 }
 
+function handleSubmit(e) {
+  e.preventDefault();
+
+  const newToy = {
+    name,
+    image,
+    likes: 0
+  };
+
+  fetch("http://localhost:3001/toys", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newToy)
+  })
+    .then((res) => res.json())
+    .then((createdToy) => {
+      onAddToy(createdToy);
+    });
+}
+
 export default ToyForm;
