@@ -1,6 +1,8 @@
 import React from "react";
 
 function ToyForm() {
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
   return (
     <div className="container">
       <form className="add-toy-form">
@@ -25,6 +27,17 @@ function ToyForm() {
           value="Create New Toy"
           className="submit"
         />
+        <input
+  type="text"
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+/>
+
+<input
+  type="text"
+  value={image}
+  onChange={(e) => setImage(e.target.value)}
+/>
       </form>
     </div>
   );
