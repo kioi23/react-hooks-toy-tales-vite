@@ -13,19 +13,19 @@ function App() {
   }, []);
 
   function handleAddToy(newToy) {
-    setToys([...toys, newToy]);
+    setToys((prevToys) => [...prevToys, newToy]);
   }
 
   function handleDeleteToy(id) {
-    const updatedToys = toys.filter((toy) => toy.id !== id);
-    setToys(updatedToys);
+    setToys((prevToys) => prevToys.filter((toy) => toy.id !== id));
   }
 
   function handleUpdateToy(updatedToy) {
-    const updatedToys = toys.map((toy) =>
-      toy.id === updatedToy.id ? updatedToy : toy
+    setToys((prevToys) =>
+      prevToys.map((toy) =>
+        toy.id === updatedToy.id ? updatedToy : toy
+      )
     );
-    setToys(updatedToys);
   }
 
   return (
