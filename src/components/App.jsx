@@ -35,4 +35,10 @@ function App() {
   );
 }
 
+function handleAddToy(newToy) {
+  setToys([...toys, newToy]);
+}
+<ToyForm onAddToy={handleAddToy} />
+
+
 export default App;
