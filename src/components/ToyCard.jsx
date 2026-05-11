@@ -23,6 +23,15 @@ function handleDelete() {
 }
 <button onClick={handleDelete}>Donate</button>
 
+function handleDeleteToy(id) {
+  const updatedToys = toys.filter((toy) => toy.id !== id);
+  setToys(updatedToys);
+}
+<ToyCard
+  key={toy.id}
+  toy={toy}
+  onDeleteToy={handleDeleteToy}
+/>
 
 
 export default ToyCard;
