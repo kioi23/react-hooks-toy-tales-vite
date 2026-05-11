@@ -33,5 +33,24 @@ function handleDeleteToy(id) {
   onDeleteToy={handleDeleteToy}
 />
 
+function handleLike() {
+  const updatedLikes = toy.likes + 1;
+
+  fetch(`http://localhost:3001/toys/${toy.id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ likes: updatedLikes })
+  })
+    .then((res) => res.json())
+    .then((updatedToy) => {
+      onUpdateToy(updatedToy);
+    });
+}
+<button onClick={handleLike}>
+  {toy.likes} Likes
+</button>
+
 
 export default ToyCard;
