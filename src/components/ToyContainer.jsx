@@ -1,4 +1,3 @@
-import React from "react";
 import ToyCard from "./ToyCard";
 
 function ToyContainer({ toys, onDeleteToy, onUpdateToy }) {
@@ -11,11 +10,7 @@ function ToyContainer({ toys, onDeleteToy, onUpdateToy }) {
     />
   ));
 
-  return (
-    <div className="toy-container">
-      {toyCards}
-    </div>
-  );
+  return <div className="toy-container">{toyCards}</div>;
 }
 
 export default ToyContainer;
