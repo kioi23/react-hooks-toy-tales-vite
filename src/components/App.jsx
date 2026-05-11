@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Header from "./Header";
 import ToyForm from "./ToyForm";
 import ToyContainer from "./ToyContainer";
 
 function App() {
+  const [toys, setToys] = useState([]);
   const [showForm, setShowForm] = useState(false);
 
   function handleClick() {
