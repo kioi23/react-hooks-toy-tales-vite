@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import ToyCard from "./components/ToyCard";
-import ToyForm from "./components/ToyForm";
+import ToyContainer from "./ToyContainer";
+import ToyForm from "./ToyForm";
 
 function App() {
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3001/toys")
-      .then((res) => res.json())
+      .then((response) => response.json())
       .then((data) => setToys(data));
   }, []);
 
@@ -24,20 +24,19 @@ function App() {
     const updatedToys = toys.map((toy) =>
       toy.id === updatedToy.id ? updatedToy : toy
     );
+
     setToys(updatedToys);
   }
 
   return (
-    <div>
+    <div className="App">
       <ToyForm onAddToy={handleAddToy} />
-      {toys.map((toy) => (
-        <ToyCard
-          key={toy.id}
-          toy={toy}
-          onDeleteToy={handleDeleteToy}
-          onUpdateToy={handleUpdateToy}
-        />
-      ))}
+
+      <ToyContainer
+        toys={toys}
+        onDeleteToy={handleDeleteToy}
+        onUpdateToy={handleUpdateToy}
+      />
     </div>
   );
 }

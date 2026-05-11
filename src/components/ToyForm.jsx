@@ -8,8 +8,8 @@ function ToyForm({ onAddToy }) {
     e.preventDefault();
 
     const newToy = {
-      name,
-      image,
+      name: name,
+      image: image,
       likes: 0
     };
 
@@ -20,26 +20,37 @@ function ToyForm({ onAddToy }) {
       },
       body: JSON.stringify(newToy)
     })
-      .then((res) => res.json())
-      .then((createdToy) => onAddToy(createdToy));
+      .then((response) => response.json())
+      .then((data) => onAddToy(data));
+
+    setName("");
+    setImage("");
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Toy Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Image URL"
-        value={image}
-        onChange={(e) => setImage(e.target.value)}
-      />
-      <button type="submit">Add Toy</button>
-    </form>
+    <div className="toy-form">
+      <h2>Add a Toy</h2>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Toy name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <input
+          type="text"
+          placeholder="Image URL"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
+
+        <button type="submit">
+          Add Toy
+        </button>
+      </form>
+    </div>
   );
 }
 
