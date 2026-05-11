@@ -1,6 +1,7 @@
 import ToyCard from "./ToyCard";
 
 function ToyContainer({ toys, onDeleteToy, onUpdateToy }) {
+
   const toyCards = toys.map((toy) => {
     return (
       <ToyCard
@@ -12,7 +13,11 @@ function ToyContainer({ toys, onDeleteToy, onUpdateToy }) {
     );
   });
 
-  return <div className="toy-container">{toyCards}</div>;
+  return (
+    <div className="toy-container">
+      {toyCards}
+    </div>
+  );
 }
 
 export default ToyContainer;

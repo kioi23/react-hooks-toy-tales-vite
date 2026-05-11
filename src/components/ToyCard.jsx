@@ -1,4 +1,6 @@
+
 function ToyCard({ toy, onDeleteToy, onUpdateToy }) {
+
   function handleDelete() {
     fetch(`http://localhost:3001/toys/${toy.id}`, {
       method: "DELETE"
@@ -7,6 +9,7 @@ function ToyCard({ toy, onDeleteToy, onUpdateToy }) {
   }
 
   function handleLike() {
+
     const updatedLikes = {
       likes: toy.likes + 1
     };
@@ -23,7 +26,9 @@ function ToyCard({ toy, onDeleteToy, onUpdateToy }) {
   }
 
   return (
-    <div className="card">
+
+    <div className="card" data-testid="toy-card">
+
       <h2>{toy.name}</h2>
 
       <img
@@ -32,15 +37,14 @@ function ToyCard({ toy, onDeleteToy, onUpdateToy }) {
         className="toy-avatar"
       />
 
-      <p>{toy.likes} Likes </p>
+      <p>{toy.likes} Likes</p>
 
-      <button onClick={handleLike}>
-        Like ❤️
-      </button>
+      <button onClick={handleLike}>Like {"<3"}</button>
 
       <button onClick={handleDelete}>
         Donate to GoodWill
       </button>
+
     </div>
   );
 }

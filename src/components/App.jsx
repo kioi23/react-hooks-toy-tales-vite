@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import Header from "./Header";
 import ToyContainer from "./ToyContainer";
 import ToyForm from "./ToyForm";
 
@@ -7,7 +8,7 @@ function App() {
 
   useEffect(() => {
     fetch("http://localhost:3001/toys")
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
 
@@ -24,14 +25,13 @@ function App() {
     const updatedToys = toys.map((toy) =>
       toy.id === updatedToy.id ? updatedToy : toy
     );
-
     setToys(updatedToys);
   }
 
   return (
-    <div className="App">
+    <div>
+      <Header />
       <ToyForm onAddToy={handleAddToy} />
-
       <ToyContainer
         toys={toys}
         onDeleteToy={handleDeleteToy}
