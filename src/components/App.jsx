@@ -15,7 +15,9 @@ function App() {
     .then((data) => setToys(data));
 }, []);
 
-
+{toys.map((toy) => (
+  <ToyCard key={toy.id} toy={toy} />
+))}
 
   function handleClick() {
     setShowForm((showForm) => !showForm);
