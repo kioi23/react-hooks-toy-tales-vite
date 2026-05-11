@@ -40,5 +40,12 @@ function handleAddToy(newToy) {
 }
 <ToyForm onAddToy={handleAddToy} />
 
+function handleUpdateToy(updatedToy) {
+  const updatedToys = toys.map((toy) =>
+    toy.id === updatedToy.id ? updatedToy : toy
+  );
+
+  setToys(updatedToys);
+}
 
 export default App;
