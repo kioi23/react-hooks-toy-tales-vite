@@ -15,5 +15,14 @@ function ToyCard() {
     </div>
   );
 }
+function handleDelete() {
+  fetch(`http://localhost:3001/toys/${toy.id}`, {
+    method: "DELETE"
+  })
+  .then(() => onDeleteToy(toy.id));
+}
+<button onClick={handleDelete}>Donate</button>
+
+
 
 export default ToyCard;
